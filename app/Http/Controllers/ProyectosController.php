@@ -4,16 +4,20 @@ namespace App\Http\Controllers;
 
 use App\Models\Proyectos;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
 
 class ProyectosController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
-    {echo("Hola");
-        //
-    }
+  public function index()
+{
+    $proyectos = DB::table('proyectos')->get();
+    return view("projects/index3", ['proyectos' => $proyectos]);
+}
+
 
     /**
      * Show the form for creating a new resource.
